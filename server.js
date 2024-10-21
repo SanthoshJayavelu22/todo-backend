@@ -5,7 +5,6 @@ const app = express();
 app.use(express.json())
 app.use(cors())
 
-MONGODB_URI='mongodb+srv://santhoshjayavelu57:FFQflCmEjHcyq5xQ@todoapp.lmeo6.mongodb.net/?retryWrites=true&w=majority&appName=todoapp'
 
 
 mongoose.connect(process.env.MONGODB_URI)
@@ -97,7 +96,7 @@ app.delete("/todo/:id", async (req,res)=>{
 
 })
 
-const port = 8000;
+const port = process.env.PORT || 3000;
 app.listen(port, () =>{
     console.log(`Server is Listening on Port ${port}`)
 })
