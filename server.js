@@ -5,9 +5,10 @@ const app = express();
 app.use(express.json())
 app.use(cors())
 
+MONGODB_URI='mongodb+srv://santhoshjayavelu57:FFQflCmEjHcyq5xQ@todoapp.lmeo6.mongodb.net/?retryWrites=true&w=majority&appName=todoapp'
 
 
-mongoose.connect('mongodb+srv://santhoshjayavelu57:FFQflCmEjHcyq5xQ@todoapp.lmeo6.mongodb.net/?retryWrites=true&w=majority&appName=todoapp')
+mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log('DB connected'))
   .catch((err) => console.log(err));
 
