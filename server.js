@@ -1,8 +1,8 @@
-import express, { json } from 'express';
-import { connect, Schema, model } from 'mongoose';
-import cors from 'cors';
+const express = require('express');
+const mongoose = require('mongoose')
+const cors = require('cors');
 const app = express();
-app.use(json())
+app.use(express.json())
 app.use(cors())
 
 MONGODB_URI='mongodb+srv://santhoshjayavelu57:FFQflCmEjHcyq5xQ@todoapp.lmeo6.mongodb.net/todoapp?retryWrites=true&w=majority'
@@ -20,7 +20,7 @@ const todoSchema = new Schema({
   description: { type: String, required: true },
 });
 
-const Todo = model('Todo', todoSchema);
+const Todo = mongoose.model('Todo', todoSchema);
 
 // Routes
 // POST: Create a new todo
@@ -41,6 +41,8 @@ app.post('/todo', async (req, res) => {
     res.status(500).json({ message: 'Internal server error' });
   }
 });
+
+
 
 // GET: Retrieve all todos
 app.get('/todo', async (req, res) => {
