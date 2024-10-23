@@ -15,7 +15,7 @@ mongoose.connect(process.env.MONGODB_URI)
   });
 
 // Define Todo schema and model
-const todoSchema = new Schema({
+const todoSchema = new mongoose.Schema({
   title: { type: String, required: true },
   description: { type: String, required: true },
 });
