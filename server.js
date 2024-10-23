@@ -7,7 +7,7 @@ app.use(cors())
 
 MONGODB_URI='mongodb+srv://santhoshjayavelu57:FFQflCmEjHcyq5xQ@todoapp.lmeo6.mongodb.net/todoapp?retryWrites=true&w=majority'
 
-connect(MONGODB_URI)
+connect(process.env.MONGODB_URI)
   .then(() => console.log('DB connected'))
   .catch((err) => {
     console.error('DB connection error:', err);
